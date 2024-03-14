@@ -20,7 +20,7 @@ log_every: 100            # log your message, curve or images every N STEPS
 batchsize: 16
 valid_batchsize: 1
 lr: 1e-4
-checkpoint_path: null
+checkpoint_path: ../pretrained_models/trained_on_MSEC.ckpt
 
 checkpoint_monitor: loss
 resume_training: true

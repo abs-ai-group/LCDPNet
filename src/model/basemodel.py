@@ -79,14 +79,15 @@ class BaseModel(pl.core.LightningModule):
                 # an existing but empty dir
                 pass
             else:
-                try:
-                    input_str = input(
-                        f'[ WARN ] Result directory "{runtime_dirname}" exists. Press ENTER to overwrite or input suffix '
-                        f'to create a new one:\n> New name: {runtime_dirname}.')
-                except Exception as e:
-                    print(
-                        f'[ WARN ] Excepion {e} occured, ignore input and set `input_str` empty.')
-                    input_str = ''
+                input_str = ""
+                # try:
+                #     input_str = input(
+                #         f'[ WARN ] Result directory "{runtime_dirname}" exists. Press ENTER to overwrite or input suffix '
+                #         f'to create a new one:\n> New name: {runtime_dirname}.')
+                # except Exception as e:
+                #     print(
+                #         f'[ WARN ] Excepion {e} occured, ignore input and set `input_str` empty.')
+                #     input_str = ''
                 if input_str == '':
                     print(
                         f"[ WARN ] Overwrite result_dir: {runtime_dirname}")
