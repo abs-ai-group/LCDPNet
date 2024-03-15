@@ -71,7 +71,10 @@ def move_images_and_remove_directory(source_dir, destination_dir):
             # Move the image file to the destination directory
             shutil.move(source_file, destination_file)
     # After moving all image files, remove the source directory
-    shutil.rmtree(source_dir)
+    try:
+        shutil.rmtree(source_dir)
+    except:
+        pass
 
 
 def process_dataset(dataset_path):
@@ -80,7 +83,7 @@ def process_dataset(dataset_path):
         image_path = os.path.join(split_path, 'images')
         write_yaml_file(image_path)
         main()
-        source_directory = "../pretrained_models/test_result"
+        source_directory = "../pretrained_models/test_result/lcdpnet_pretrained_models_trained_on_MSEC.ckpt@lcdp_data.test/"
         destination_directory = Path(str(image_path).replace("Fisheye_deblur", "Fisheye_contrast"))
         move_images_and_remove_directory(source_directory, destination_directory)
 
